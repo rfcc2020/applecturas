@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagMenu">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="JUNTA ADMINISTRADORA DE AGUA POTABLE ZUMBAHUAYCO" HorizontalTextAlignment="Center" TextColor="BlueViolet" FontSize="Caption"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Usuario: " HorizontalTextAlignment="Center" FontSize="Micro"/>
+                <Label x:Name="TxtUsuario" TextColor="BlueViolet" FontSize="Micro"/>
+                <Label Text="Perfil: " HorizontalTextAlignment="Center" FontSize="Micro"/>
+                <Label x:Name="TxtPerfil" TextColor="BlueViolet" FontSize="Micro"/>
+            </StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Administrar Personas" x:Name="ButAdminPersona" Clicked="ButAdminPersona_Clicked" Grid.Row="0" Grid.Column="0" FontSize="Micro"/>
+                <Button Text="Administrar Medidores" x:Name="ButAdminMedidor" Clicked="ButAdminMedidor_Clicked" Grid.Row="0" Grid.Column="1" FontSize="Micro"/>
+                <Button Text="Ingresar Lectura" x:Name="ButIngresarLectura" Clicked="ButIngresarLectura_Clicked" Grid.Row="1" Grid.Column="0" FontSize="Micro"/>
+                <Button Text="Administrar Usuarios" x:Name="ButAdminUsuario" Clicked="ButAdminUsuario_Clicked" Grid.Row="1" Grid.Column="1" FontSize="Micro"/>
+                <Button Text="Administrar Perfiles" x:Name="ButAdminPerfil" Clicked="ButAdminPerfil_Clicked" Grid.Row="2" Grid.Column="0" FontSize="Micro"/>
+                <Button Text="Administrar Permiso" x:Name="ButAdminPermiso" Clicked="ButAdminPermiso_Clicked" Grid.Row="2" Grid.Column="1" FontSize="Micro"/>
+            </Grid>
+            <Button Text="Cerrar Sesión" x:Name="ButCerrarSesion" Clicked="ButCerrarSesion_Clicked" FontSize="Micro"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

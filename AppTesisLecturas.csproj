@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Vista\PagAdminPermiso.xaml.cs">
+      <DependentUpon>PagAdminPermiso.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagAdminPerfil.xaml.cs">
+      <DependentUpon>PagAdminPerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagAdminMedidor.xaml.cs">
+      <DependentUpon>PagAdminMedidor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagIngresoLectura.xaml.cs">
+      <DependentUpon>PagIngresoLectura.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagAdminUsuario.xaml.cs">
+      <DependentUpon>PagAdminUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagAsignaPermiso.xaml.cs">
+      <DependentUpon>PagAsignaPermiso.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagListaPermiso.xaml.cs">
+      <DependentUpon>PagListaPermiso.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagListaPerfil.xaml.cs">
+      <DependentUpon>PagListaPerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagListaMedidor.xaml.cs">
+      <DependentUpon>PagListaMedidor.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Vista\PagListaUsuario.xaml.cs">
+      <DependentUpon>PagListaUsuario.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Vista\PagAdminPersona.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vista\PagListaPersona.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vista\PagLogin.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vista\PagMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Imagenes\logo.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

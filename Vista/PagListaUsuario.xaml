@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagListaUsuario">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Entry x:Name="TxtIdPerfil" Placeholder="Id del Perfil" FontSize="Micro" Grid.Row="0" Grid.Column="0"></Entry>
+                        <Button x:Name="BtnListar" Text="Listar Usuarios" Clicked="BtnListar_Clicked" FontSize="Micro" Grid.Row="0" Grid.Column="1"></Button>
+                        <Button x:Name="BtnAgregar" Text="Agregar Usuario" Clicked="BtnAgregar_Clicked" FontSize="Micro" Grid.Row="0" Grid.Column="2"></Button>
+                    </Grid>                    
+                </StackLayout>
+                <ListView x:Name="lstUsuarios" ItemSelected="lstUsuarios_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="Azure">
+                                    <Label Text="{Binding Id}" FontSize="Micro"/>
+                                    <Label Text="{Binding Cedula}" FontSize="Micro"/>
+                                    <Label Text="{Binding ObjPersona.Nombres}" FontSize="Micro"/>
+                                    <Label Text="{Binding ObjPersona.Apellidos}" FontSize="Micro"/>
+                                    <Label Text="{Binding ObjPersona.Telefono}" FontSize="Micro"/>
+                                    <Label Text="{Binding ObjPersona.Email}" FontSize="Micro"/>
+                                    <Label Text="{Binding Password}" FontSize="Micro"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

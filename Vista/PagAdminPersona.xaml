@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagAdminPersona"
+             xmlns:local="clr-namespace:AppTesisLecturas.Behaviours">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Id" Grid.Row="0" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtId" Text="{Binding Id}"  Placeholder="##" IsReadOnly="True" Grid.Row="0" Grid.Column="1" FontSize="Micro">
+            </Entry>
+            <Label Text="Cedula" Grid.Row="1" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtCedula" Text="{Binding Cedula}" Placeholder="##########" Grid.Row="1" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior  MaxLength="10"/>
+                    <local:NumeroValidatorBehavior/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Nombres" Grid.Row="2" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtNombres" Text="{Binding Nombres}" Placeholder="Juan" Grid.Row="2" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior  MaxLength="45"/>
+                    <local:TextValidatorBehavior/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Apellidos" Grid.Row="3" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtApellidos" Text="{Binding Apellidos}" Placeholder="Perez" Grid.Row="3" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior  MaxLength="45"/>
+                    <local:TextValidatorBehavior/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Teléfono" Grid.Row="4" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtTelefono" Text="{Binding Telefono}" Placeholder="##########" Grid.Row="4" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior  MaxLength="10"/>
+                    <local:NumeroValidatorBehavior/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Email" Grid.Row="5" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtEmail" Text="{Binding Email}" Placeholder="ejemplo@ejemplo.com" Grid.Row="5" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior  MaxLength="45"/>
+                    <local:EmailValidatorBehavior/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Estado" Grid.Row="6" Grid.Column="0" FontSize="Micro"/>
+            <Entry x:Name="txtEstado" Text="{Binding Estado}" Grid.Row="6" Grid.Column="1" FontSize="Micro">
+                <Entry.Behaviors>
+                    <local:MaxLengthValidatorBehavior MaxLength="1"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Fecha de Ingreso: " Grid.Row="7" Grid.Column="0" FontSize="Micro"/>
+            <Label Text="{Binding FechaIngreso}" Grid.Row="7" Grid.Column="1" FontSize="Micro"/>
+            <Label Text="Fecha de Modificación: " Grid.Row="8" Grid.Column="0" FontSize="Micro"/>
+            <Label Text="{Binding FechaModificacion}" Grid.Row="8" Grid.Column="1" FontSize="Micro"/>
+            <Button x:Name="ButGuardar" Text="Guardar" Clicked="ButGuardar_Clicked" Grid.Row="9" Grid.Column="0" FontSize="Micro"></Button>
+            <Button x:Name="ButEliminar" Text="Eliminar" Clicked="ButEliminar_Clicked" Grid.Row="9" Grid.Column="1" FontSize="Micro"></Button>
+            <Button x:Name="ButAsigUsuario" Text="Asignar Usuario" Clicked="ButAsigUsuario_Clicked" Grid.Row="10" Grid.Column="0" FontSize="Micro"></Button>
+            <Button x:Name="ButAsignaMedidor" Text="Asignar Medidor" Clicked="ButAsignaMedidor_Clicked" Grid.Row="10" Grid.Column="1" FontSize="Micro"></Button>
+        </Grid>
+       </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

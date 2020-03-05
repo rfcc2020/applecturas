@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagLogin"
+             xmlns:local="clr-namespace:AppTesisLecturas.Behaviours">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="JUNTA ADMINISTRADORA DE AGUA POTABLE ZUMBAHUAYCO" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="BlueViolet" FontSize="Medium"/>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Label Text="Ingrese al sistema" HorizontalOptions="Center"/>
+                <Entry x:Name="TxtEmail" Placeholder="ejemplo@dominio.com">
+                    <Entry.Behaviors>
+                        <local:EmailValidatorBehavior></local:EmailValidatorBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry x:Name="TxtPassword" IsPassword="True" Placeholder="Clave">
+                    <Entry.Behaviors>
+                        <local:PasswordValidatorBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Button Text="Entrar"  x:Name="ButEntrar" Clicked="ButEntrar_Clicked"></Button>
+                <Button Text="Cancelar" x:Name="ButCancelar" Clicked="ButCancelar_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

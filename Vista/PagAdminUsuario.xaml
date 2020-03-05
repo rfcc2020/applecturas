@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagAdminUsuario"
+             xmlns:local="clr-namespace:AppTesisLecturas.Behaviours">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Id" Grid.Row="0" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtId" Text="{Binding Id}"  Placeholder="##" IsReadOnly="True" Grid.Row="0" Grid.Column="1" FontSize="Micro">
+                </Entry>
+                <Label Text="Estado" Grid.Row="1" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtEstado" Text="{Binding Estado}" Grid.Row="1" Grid.Column="1" FontSize="Micro">
+                    <Entry.Behaviors>
+                        <local:MaxLengthValidatorBehavior MaxLength="1"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Perfil:" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="2" Grid.Column="0" FontSize="Micro"/>
+                <Picker x:Name="PkrListaPerfil" Title="Select perfil" SelectedItem="{Binding ObjPerfil}" Grid.Row="2" Grid.Column="1" FontSize="Micro"/>
+                <Label Text="Password" Grid.Row="3" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtPassword" Text="{Binding Password}" Grid.Row="3" Grid.Column="1" FontSize="Micro">
+                    <Entry.Behaviors>
+                        <local:PasswordValidatorBehavior/>
+                        <local:CompareTextsValidatorBehavior BindingContext="{x:Reference txtConfirmaPassword}" Text="{Binding Text}" Ent="{x:Reference txtConfirmaPassword}"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Confirma Password" Grid.Row="4" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtConfirmaPassword" Placeholder="Repetir Password" Grid.Row="4" Grid.Column="1" FontSize="Micro">
+                    <Entry.Behaviors>
+                        <local:PasswordValidatorBehavior/>
+                        <local:CompareTextsValidatorBehavior BindingContext="{x:Reference txtPassword}" Text="{Binding Text}"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Fecha de Ingreso: " Grid.Row="5" Grid.Column="0" FontSize="Micro"/>
+                <Label Text="{Binding FechaIngreso}" Grid.Row="5" Grid.Column="1" FontSize="Micro"/>
+                <Label Text="Fecha de Modificación: " Grid.Row="6" Grid.Column="0" FontSize="Micro"/>
+                <Label Text="{Binding FechaModificacion}" Grid.Row="6" Grid.Column="1" FontSize="Micro"/>
+                <Button x:Name="ButGuardar" Text="Guardar" Clicked="ButGuardar_Clicked" Grid.Row="7" Grid.Column="0" FontSize="Micro"></Button>
+                <Button x:Name="ButEliminar" Text="Eliminar" Clicked="ButEliminar_Clicked" Grid.Row="7" Grid.Column="1" FontSize="Micro"></Button>
+            </Grid>
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>

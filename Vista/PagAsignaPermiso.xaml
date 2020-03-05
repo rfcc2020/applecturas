@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagAsignaPermiso">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Perfil:" FontSize="Micro" Grid.Row="0" Grid.Column="0"></Label>
+                    <Label x:Name="TxtPerfil" FontSize="Micro" Grid.Row="1" Grid.Column="0"></Label>
+                </Grid>
+                <ListView x:Name="lstPermisos">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="Azure" Orientation="Horizontal">
+                                    <Label Text="{Binding Nombre}"/>
+                                    <CheckBox x:Name="{Binding Id}" IsChecked="{Binding Asignado}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button x:Name="BtnGuardar" Text="Guardar" Clicked="BtnGuardar_Clicked" FontSize="Micro" Grid.Row="2" Grid.Column="0"></Button>
+            </StackLayout>                          
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

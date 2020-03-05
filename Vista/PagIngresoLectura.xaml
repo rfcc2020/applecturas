@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagIngresoLectura"
+             xmlns:local="clr-namespace:AppTesisLecturas.Behaviours">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Id: " Grid.Row="0" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtId" Text="{Binding Id}"  Placeholder="##" IsReadOnly="True" Grid.Row="0" Grid.Column="1" FontSize="Micro">
+                </Entry>
+                <Label Text="Datos del Consumidor" Grid.Row="1" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtCedula" Placeholder="Cedula" Grid.Row="2" Grid.Column="0" FontSize="Micro">
+                    <Entry.Behaviors>
+                        <local:MaxLengthValidatorBehavior  MaxLength="10"/>
+                        <local:NumeroValidatorBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Button x:Name="ButConsultaPersona" Text="Consultar" Clicked="ButConsultaPersona_Clicked" Grid.Row="2" Grid.Column="1" FontSize="Micro"></Button>
+                <Label x:Name="LblNombres" Grid.Row="3" Grid.Column="0" FontSize="Micro"></Label>
+
+                <Label Text="Datos del medidor:" Grid.Row="4" Grid.Column="0" FontSize="Micro"/>
+                <Picker x:Name="PkrNumeroMedidor" Title="SeleccionaMedidor" SelectedItem="{Binding ObjMedidor}" SelectedIndexChanged="PkrNumeroMedidor_SelectedIndexChanged" Grid.Row="4" Grid.Column="1" FontSize="Micro"></Picker>
+
+                <Label Text="Fecha" Grid.Row="5" Grid.Column="0" FontSize="Micro"/>
+                <DatePicker Date="{Binding Fecha}" Grid.Row="5" Grid.Column="1" FontSize="Micro"></DatePicker>
+                <Label Text="Lectura Anterior: " Grid.Row="6" Grid.Column="0" FontSize="Micro"/>
+                <Label x:Name="TxtAnterior" Text="{Binding Anterior}" Grid.Row="6" Grid.Column="1" FontSize="Micro"></Label>
+                <Label Text="Lectura Actual: " Grid.Row="7" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtLecturaActual" Text="{Binding Actual}" Placeholder="Lectura Actual" Grid.Row="7" Grid.Column="1" FontSize="Micro" TextChanged="txtLecturaActual_TextChanged">
+                    <Entry.Behaviors>
+                        <local:NumeroValidatorBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Consumo: " Grid.Row="8" Grid.Column="0" FontSize="Micro"/>
+                <Label x:Name="txtConsumo" Text="{Binding Consumo}" Grid.Row="8" Grid.Column="1" FontSize="Micro">
+                </Label>
+                <Label Text="Básico: " Grid.Row="9" Grid.Column="0" FontSize="Micro"/>
+                <Label x:Name="txtBasico" Text="{Binding Basico}" Grid.Row="9" Grid.Column="1" FontSize="Micro">
+                </Label>
+                <Label Text="Exceso:" Grid.Row="10" Grid.Column="0" FontSize="Micro"/>
+                <Label x:Name="txtExceso" Text="{Binding Exceso}" Grid.Row="10" Grid.Column="1" FontSize="Micro">
+                </Label>
+
+                <Label Text="Total: " Grid.Row="11" Grid.Column="0" FontSize="Micro"></Label>
+                <Label x:Name="TxtTotal" Text="{Binding Total}" Grid.Row="11" Grid.Column="1" FontSize="Micro"></Label>
+
+                <Label Text="Observaciones: " Grid.Row="12" Grid.Column="0" FontSize="Micro"/>
+                <Entry x:Name="txtObservacion" HorizontalOptions="FillAndExpand" Text="{Binding Observacion}" Grid.Row="12" Grid.Column="1" FontSize="Micro">
+            </Entry>
+                <Label Text="Fecha de Ingreso: " Grid.Row="13" Grid.Column="0" FontSize="Micro"/>
+                <Label Text="{Binding FechaIngreso}" Grid.Row="13" Grid.Column="1" FontSize="Micro"/>
+                <Label Text="Fecha de Modificación: " Grid.Row="14" Grid.Column="0" FontSize="Micro"/>
+                <Label Text="{Binding FechaModificacion}" Grid.Row="14" Grid.Column="1" FontSize="Micro"/>
+
+                <Button x:Name="ButGuardar" Text="Guardar" Clicked="ButGuardar_Clicked" Grid.Row="15" Grid.Column="0" FontSize="Micro"></Button>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

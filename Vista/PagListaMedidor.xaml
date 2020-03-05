@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTesisLecturas.Vista.PagListaMedidor">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Listado de Medidores"></Label>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Entry x:Name="TxtNumero" Placeholder="Número de medidor" FontSize="Micro" Grid.Row="0" Grid.Column="0"></Entry>
+                        <Button x:Name="BtnListar" Text="Listar" Clicked="BtnListar_Clicked" FontSize="Micro" Grid.Row="0" Grid.Column="1"></Button>
+                        <Button x:Name="BtnAgregar" Text="Agregar" Clicked="BtnAgregar_Clicked" FontSize="Micro" Grid.Row="0" Grid.Column="2"></Button>
+                    </Grid>
+                </StackLayout>              
+                <ListView x:Name="lstMedidores" ItemSelected="lstMedidores_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="Azure">
+                                    <Label Text="{Binding Id}" FontSize="Micro"/>
+                                    <Label Text="{Binding Codigo}" FontSize="Micro"/>
+                                    <Label Text="{Binding Numero}" FontSize="Micro"/>
+                                    <Label Text="{Binding IdPersona}" FontSize="Micro"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
